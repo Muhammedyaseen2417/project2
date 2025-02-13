@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Book Your Event
+{% endblock %}
+
+{% block contant %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-4 border-0 rounded-3" style="max-width: 500px; width: 100%;">
+        <div class="card-body text-center">
+            <h1 class="mb-3 text-primary fw-bold">Book Your Event</h1>
+            <p class="text-muted">Secure your spot by filling out the form below.</p>
+            <hr>
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.as_p }}
+                </div>
+                <button class="btn btn-primary w-100 py-2 fw-semibold book-btn">
+                    🎉 Book Now
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        font-family: 'Arial', sans-serif;
+    }
+    .card {
+        background: #ffffff;
+        border-radius: 15px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+        transform: scale(1.02);
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .book-btn {
+        background: linear-gradient(135deg, #007bff, #6610f2);
+        border: none;
+        transition: background 0.3s ease-in-out;
+    }
+    .book-btn:hover {
+        background: linear-gradient(135deg, #0056b3, #520dc2);
+    }
+</style>
+{% endblock %}
+

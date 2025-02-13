@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block contant %}
+
+<!-- Bootstrap Carousel -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="max-width: 800px; margin: auto;">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../static/images/images.jpeg" class="d-block w-100" alt="Slide 1" style="height: 400px; object-fit: cover;">
+    </div>
+    <div class="carousel-item">
+      <img src="../static/images/watercolor-wedding-planner-sale-background_23-2149261780.avif" class="d-block w-100" alt="Slide 2" style="height: 400px; object-fit: cover;">
+    </div>
+    <div class="carousel-item">
+      <img src="../static/images/wedding-planner-banner-design-template-f84dc7da0ad7832224a1d0f553e2d16c_screen.jpg" class="d-block w-100" alt="Slide 3" style="height: 400px; object-fit: cover;">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Marriage Events Section -->
+<div class="container mt-5">
+  <h2 class="text-center">Upcoming Marriage Events</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/event1.jpg" class="card-img-top" alt="Event 1">
+        <div class="card-body">
+          <h5 class="card-title">Grand Wedding Gala</h5>
+          <p class="card-text">Join us for an exclusive wedding gala with top vendors and planners.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/event2.jpg" class="card-img-top" alt="Event 2">
+        <div class="card-body">
+          <h5 class="card-title">Royal Wedding Expo</h5>
+          <p class="card-text">A luxurious event showcasing top wedding trends and services.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/event3.jpg" class="card-img-top" alt="Event 3">
+        <div class="card-body">
+          <h5 class="card-title">Elegant Marriage Fair</h5>
+          <p class="card-text">Meet wedding planners, designers, and caterers for your big day.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
