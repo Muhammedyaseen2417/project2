@@ -20,7 +20,7 @@ def bookings(request):
 
         if form.is_valid():
             form.save()
-            return redirect('user/booking_')
+            return redirect('view_bookings')
      
     form=BookingForm()
     dict_form={
@@ -31,3 +31,9 @@ def bookings(request):
 
 def contact(request):
     return render(request,'user/contact.html')
+
+def view_bookings(request):
+    return render(request,'user/mybooking.html')
+
+
+

@@ -9,6 +9,91 @@ contact
 
 {% block contant %}
 
-contact page
+<div class="container my-5">
+      <div class="text-center">
+          <h1 class="display-4 animate__animated animate__fadeInDown">Contact Us</h1>
+          <p class="lead animate__animated animate__fadeIn">Get in touch with us for your dream wedding planning</p>
+      </div>
+  
+      <div class="row mt-5">
+          <div class="col-lg-6 col-md-12 animate__animated animate__fadeInLeft text-center text-md-start">
+              <h2>Our Office</h2>
+              <p>123 Wedding Street, Dream City, kerala</p>
+              <p>Email: Sulthan@marriageevents.com</p>
+              <p>Phone: +91 9633683784</p>
+          </div>
+          <div class="col-lg-6 col-md-12 animate__animated animate__fadeInRight">
+              <h2>Send Us a Message</h2>
+              <form>
+                  <div class="mb-3">
+                      <label for="name" class="form-label">Your Name</label>
+                      <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                  </div>
+                  <div class="mb-3">
+                      <label for="email" class="form-label">Your Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                  </div>
+                  <div class="mb-3">
+                      <label for="message" class="form-label">Your Message</label>
+                      <textarea class="form-control" id="message" rows="4" placeholder="Type your message here"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Send Message</button>
+              </form>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Adding Animation & Styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          background: orangered;
+      }
+      .container {
+          background: white;
+          padding: 40px;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1, h2 {
+          color:orangered;
+      }
+      .form-control {
+          border-radius: 5px;
+      }
+      .btn-primary {
+          background-color: orangered;
+          border-color: orangered;
+      }
+      @media (max-width: 768px) {
+          .container {
+              padding: 20px;
+          }
+          h1 {
+              font-size: 2rem;
+          }
+          h2 {
+              font-size: 1.5rem;
+          }
+          .btn-primary {
+              width: 100%;
+          }
+      }
+      @media (max-width: 576px) {
+          .container {
+              padding: 15px;
+          }
+          h1 {
+              font-size: 1.8rem;
+          }
+          h2 {
+              font-size: 1.3rem;
+          }
+          .form-control {
+              font-size: 0.9rem;
+          }
+      }
+  </style>
 
       {%endblock%}

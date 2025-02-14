@@ -9,6 +9,73 @@ about
 
 {% block contant %}
 
-about page
+<div class="container my-5">
+      <div class="text-center">
+          <h1 class="display-4 animate__animated animate__fadeInDown">About Our Stages Events</h1>
+          <p class="lead animate__animated animate__fadeIn">Creating Unforgettable Moments for Your Special Day</p>
+      </div>
+  
+      <div class="row align-items-center mt-5">
+          <div class="col-lg-6 col-md-12 animate__animated animate__fadeInLeft">
+              <img src="../../static/images/img1.jpg" class="img-fluid rounded shadow" alt="Wedding Ceremony">
+          </div>
+          <div class="col-lg-6 col-md-12 animate__animated animate__fadeInRight">
+              <h2>Our Vision</h2>
+              <p>We specialize in organizing dream weddings with a touch of elegance and personalization. Our team is dedicated to making your big day memorable with seamless planning and execution.</p>
+          </div>
+      </div>
+  
+      <div class="row align-items-center mt-5 flex-lg-row-reverse flex-md-row">
+          <div class="col-lg-6 col-md-12 animate__animated animate__fadeInLeft">
+              <img src="../../static/images/pexels-emma-bauso-1183828-2253870.jpg" class="img-fluid rounded shadow" alt="Wedding Reception">
+          </div>
+          <div class="col-lg-6 col-md-12 animate__animated animate__fadeInRight">
+              <h2>What We Offer</h2>
+              <ul>
+                  <li>Wedding Planning & Coordination</li>
+                  <li>Venue Selection & Decoration</li>
+                  <li>Photography & Videography</li>
+                  <li>Custom Wedding Themes</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Adding Animation & Styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          background: orangered;
+      }
+      .container {
+          background: white;
+          padding: 40px;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1, h2 {
+          color: orangered;
+      }
+      ul {
+          list-style-type: none;
+          padding: 0;
+      }
+      ul li::before {
+          content: '\2728';
+          margin-right: 10px;
+      }
+      @media (max-width: 768px) {
+          .container {
+              padding: 20px;
+          }
+          h1 {
+              font-size: 2rem;
+          }
+          h2 {
+              font-size: 1.5rem;
+          }
+      }
+  </style>
 
       {%endblock%}
