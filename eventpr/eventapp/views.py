@@ -3,16 +3,16 @@ from . models import Event
 from   .forms import BookingForm
 
 def index(request):
-    return render(request,'index.html')
+    return render(request,'user/index.html')
 
 def about(request):
-    return render(request,'about.html')
+    return render(request,'user/about.html')
 
 def events(request):
     dict_eve={
         'eve':Event.objects.all()
     }
-    return render(request,'events.html',dict_eve)
+    return render(request,'user/events.html',dict_eve)
 
 def bookings(request):
     if request.method=='POST':
@@ -20,14 +20,14 @@ def bookings(request):
 
         if form.is_valid():
             form.save()
-            return redirect('booking_')
+            return redirect('user/booking_')
      
     form=BookingForm()
     dict_form={
         'form':form
     }
 
-    return render(request,'bookings.html',dict_form)
+    return render(request,'user/bookings.html',dict_form)
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'user/contact.html')
