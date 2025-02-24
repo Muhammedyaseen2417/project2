@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block title %}
@@ -6,49 +7,53 @@
 
 {% block contant %}
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow-lg p-4 border-0 rounded-3" style="max-width: 500px; width: 100%;">
-        <div class="card-body text-center">
-            <h1 class="mb-3 text-primary fw-bold">Book Your Event</h1>
-            <p class="text-muted">Secure your spot by filling out the form below.</p>
-            <hr>
-
-            <form action="" method="post">
-                {% csrf_token %}
-                <div class="mb-3">
-                    {{ form.as_p }}
-                </div>
-                <button class="btn btn-primary w-100 py-2 fw-semibold book-btn">
-                    🎉 Book Now
-                </button>
-            </form>
-        </div>
+    <div class="booking-card shadow-lg p-5 border-0 rounded-4 text-center">
+        <h1 class="text-gradient fw-bold">Book Your Event</h1>
+        <p class="text-muted">Reserve your spot by completing the form below.</p>
+        <hr>
+        <form action="" method="post" class="booking-form">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <button class="btn book-btn w-100 py-2 fw-semibold">
+                🎉 Confirm Booking
+            </button>
+        </form>
     </div>
 </div>
 
 <style>
     body {
-        background: linear-gradient(to right, #f8f9fa, #e9ecef);
-        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        font-family: 'Poppins', sans-serif;
     }
-    .card {
-        background: #ffffff;
-        border-radius: 15px;
+    .booking-card {
+        max-width: 500px;
+        width: 100%;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
     }
-    .card:hover {
-        transform: scale(1.02);
+    .booking-card:hover {
+        transform: translateY(-5px);
     }
-    h1 {
-        font-size: 2rem;
+    .text-gradient {
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     .book-btn {
-        background: linear-gradient(135deg, #007bff, #6610f2);
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
         border: none;
-        transition: background 0.3s ease-in-out;
+        color: #fff;
+        border-radius: 50px;
+        transition: all 0.3s;
     }
     .book-btn:hover {
-        background: linear-gradient(135deg, #0056b3, #520dc2);
+        background: linear-gradient(135deg, #e52e71, #ff7eb3);
+        transform: scale(1.05);
     }
 </style>
 {% endblock %}
-
