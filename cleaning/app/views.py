@@ -93,6 +93,9 @@ def admin_home(request):
     return render(request, 'admin/home.html')
 
 
+
+
+
 def admin_bookings(request):
     # Get all appointments from the database
     appointments = Appointment.objects.all().order_by('-date')  # Orders by date, with the most recent first
