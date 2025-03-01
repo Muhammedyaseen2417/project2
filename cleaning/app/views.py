@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate,login,logout
 from .models import *
 import os
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.conf import settings
+from django.utils.crypto import get_random_string
 
 
 # Create your views here.
@@ -72,19 +75,46 @@ def shp_logout(req):
 
 
 def register(req):
-    if req.method=='POST':
-        name=req.POST['name']
-        email=req.POST['email']
-        password=req.POST['password']
-        try:
-            data=User.objects.create_user(first_name=name,email=email,password=password,username=email)
-            data.save()
-            return redirect(shp_login)
-        except:
-            messages.warning(req,'User already exists.')
-            return redirect(register)
-    else:
-        return render(req,'user/register.html')
+    if req.method == 'POST':
+        fname = req.POST['fname']
+        email = req.POST['email']
+        password = req.POST['password']
+        if User.objects.filter(email=email).exists():
+            messages.warning(req, "Email already registered")
+            return redirect('register')
+        otp = get_random_string(length=6, allowed_chars='0123456789')
+        req.session['otp'] = otp
+        req.session['email'] = email
+        req.session['fname'] = fname
+        req.session['password'] = password
+        send_mail(
+            'Your OTP Code',
+            f'Your OTP is: {otp}',
+            settings.EMAIL_HOST_USER, [email]
+        )
+        messages.success(req, "OTP sent to your email")
+        return redirect('verify_otp')
+    return render(req, 'user/register.html')
+
+def verify_otp_reg(req):
+    if req.method == 'POST':
+        entered_otp = req.POST['otp'] 
+        stored_otp = req.session.get('otp')
+        email = req.session.get('email')
+        fname = req.session.get('fname')
+        password = req.session.get('password')
+        if entered_otp == stored_otp:
+            user = User.objects.create_user(first_name=fname,email=email,password=password,username=email)
+            user.is_verified = True
+            user.save()      
+            messages.success(req, "Registration successful! You can now log in.")
+            send_mail('User Registration Succesfull', 'Account Created Succesfully And Welcome To Premium Home Cleaners', settings.EMAIL_HOST_USER, [email])
+            return redirect('shp_login')
+        else:
+            messages.warning(req, "Invalid OTP. Try again.")
+            return redirect('verify_otp_reg')
+
+    return render(req, 'user/verify_otp.html')
     
 
     # -------------------------------------admin-------------------------------------

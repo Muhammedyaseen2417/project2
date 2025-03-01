@@ -124,3 +124,15 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static')),
 MEDIA_URL = 'media/'
 MEDIA_ROOT =os.path.join(BASE_DIR,'media')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "muhammedyaseen2417@gmail.com" # Replace with your Gmail address
+EMAIL_HOST_PASSWORD = "aqss ymdl gmhr claj"  # Replace with the App Password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

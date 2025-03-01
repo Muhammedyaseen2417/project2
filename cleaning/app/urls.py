@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('booking/', views.booking, name='booking'),
     path('booking_success/', views.booking_success, name='booking_success'),
-    path('view_bookings/', views.view_bookings, name='view_bookings')
+    path('view_bookings/', views.view_bookings, name='view_bookings'),
+    path('verifyotp',views.verify_otp_reg, name='verify_otp'),
 
 ]
