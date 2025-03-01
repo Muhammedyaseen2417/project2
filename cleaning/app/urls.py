@@ -11,6 +11,10 @@ urlpatterns = [
 
     path('register/', views.register, name='register'),
     path('user_home', views.user_home, name='user_home'),
+    path('about/', views.about, name='about'),
+    path('contact', views.contact, name='contact'),
+
+     path('user_home1', views.user_home1, name='user_home1'),
     path('admin_bookings/', views.admin_bookings, name='admin_bookings'),
     path('delete_bookings/<int:appointment_id>/', views.delete_bookings, name='delete_bookings'),
 

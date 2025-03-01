@@ -24,7 +24,7 @@ def shp_login(req):
             else:
                 login(req,data)
                 req.session['user']=uname   #create session
-                return redirect(user_home)
+                return redirect(user_home1)
         else:
             messages.warning(req,'Invalid username or password.')
             return redirect(shp_login)
@@ -122,6 +122,21 @@ def delete_bookings(request, appointment_id):
 
 def user_home(request):
     return render(request, 'user/home.html')
+
+def user_home1(request):
+    return render(request, 'user/home1.html')
+
+def about(request):
+    return render(request, 'user/about.html')
+
+
+def contact(request):
+    return render(request, 'user/contact.html')
+
+
+
+
+
 
 
 # Book Appointment Page

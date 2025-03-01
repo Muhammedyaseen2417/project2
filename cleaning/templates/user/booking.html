@@ -37,42 +37,14 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .container h2 {
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .form-control {
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-        }
-
-        select.form-control {
-            cursor: pointer;
-        }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-control { border-radius: 8px; border: 1px solid #ccc; padding: 10px; font-size: 1rem; transition: 0.3s; }
+        .form-control:focus { border-color: #007bff; box-shadow: 0 0 10px rgba(0, 123, 255, 0.2); }
+        select.form-control { cursor: pointer; }
 
         .btn-primary {
             background: linear-gradient(135deg, #007bff, #6610f2);
@@ -90,19 +62,13 @@
             transform: scale(1.05);
         }
 
-        #error-message {
-            color: red;
-            font-size: 0.9rem;
-        }
+        #error-message { color: red; font-size: 0.9rem; }
     </style>
-
 </head>
 <body>
-
     <div class="container">
         <h2>Book Your Cleaning Service</h2>
-
-        <!-- Success/Error Messages -->
+        
         {% if messages %}
         <div class="alert alert-warning">
             {% for message in messages %}
@@ -121,8 +87,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" name="email" required placeholder="example@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea class="form-control" id="address" name="address" required placeholder="Enter your address"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -149,30 +125,21 @@
         </div>
     </div>
 
-    <!-- JavaScript to Restrict Date Selection -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var dateInput = document.getElementById("date");
             var now = new Date();
-            
-            // Get today's date in YYYY-MM-DDTHH:MM format
             var today = now.toISOString().slice(0, 16);
-
-            // Get next month's date
             var nextMonth = new Date();
             nextMonth.setMonth(nextMonth.getMonth() + 1);
             var nextMonthFormatted = nextMonth.toISOString().slice(0, 16);
-
-            // Set min and max attributes
             dateInput.min = today;
             dateInput.max = nextMonthFormatted;
         });
 
-        // Form Validation to Prevent Past Dates
         document.getElementById("booking-form").addEventListener("submit", function(event) {
             var selectedDate = new Date(document.getElementById("date").value);
             var now = new Date();
-            
             if (selectedDate < now) {
                 event.preventDefault();
                 document.getElementById("error-message").textContent = "⚠️ Please select a future date and time!";
@@ -181,6 +148,6 @@
             }
         });
     </script>
-
 </body>
 </html>
+
